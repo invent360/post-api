@@ -92,6 +92,7 @@ components:
           format: int64
         userId:
           type: integer
+          format: int64
         title:
           type: string
         body:
