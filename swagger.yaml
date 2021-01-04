@@ -90,10 +90,12 @@ components:
         id:
           type: integer
           format: int64
-        name:
-          type: string
         userId:
           type: integer
+        title:
+          type: string
+        body:
+          type: string
     Posts:
       type: array
       items:

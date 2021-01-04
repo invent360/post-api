@@ -89,17 +89,20 @@ components:
   schemas:
     Post:
       example:
-        name: name
         id: 0
+        title: title
+        body: body
         userId: 6
       properties:
         id:
           format: int64
           type: integer
-        name:
-          type: string
         userId:
           type: integer
+        title:
+          type: string
+        body:
+          type: string
       required:
       - id
       - name

@@ -17,18 +17,18 @@ import (
 // Post struct for Post
 type Post struct {
 	Id int64 `json:"id"`
-	Name string `json:"name"`
 	UserId *int32 `json:"userId,omitempty"`
+	Title *string `json:"title,omitempty"`
+	Body *string `json:"body,omitempty"`
 }
 
 // NewPost instantiates a new Post object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPost(id int64, name string, ) *Post {
+func NewPost(id int64, ) *Post {
 	this := Post{}
 	this.Id = id
-	this.Name = name
 	return &this
 }
 
@@ -64,30 +64,6 @@ func (o *Post) SetId(v int64) {
 	o.Id = v
 }
 
-// GetName returns the Name field value
-func (o *Post) GetName() string {
-	if o == nil  {
-		var ret string
-		return ret
-	}
-
-	return o.Name
-}
-
-// GetNameOk returns a tuple with the Name field value
-// and a boolean to check if the value has been set.
-func (o *Post) GetNameOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.Name, true
-}
-
-// SetName sets field value
-func (o *Post) SetName(v string) {
-	o.Name = v
-}
-
 // GetUserId returns the UserId field value if set, zero value otherwise.
 func (o *Post) GetUserId() int32 {
 	if o == nil || o.UserId == nil {
@@ -120,16 +96,83 @@ func (o *Post) SetUserId(v int32) {
 	o.UserId = &v
 }
 
+// GetTitle returns the Title field value if set, zero value otherwise.
+func (o *Post) GetTitle() string {
+	if o == nil || o.Title == nil {
+		var ret string
+		return ret
+	}
+	return *o.Title
+}
+
+// GetTitleOk returns a tuple with the Title field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Post) GetTitleOk() (*string, bool) {
+	if o == nil || o.Title == nil {
+		return nil, false
+	}
+	return o.Title, true
+}
+
+// HasTitle returns a boolean if a field has been set.
+func (o *Post) HasTitle() bool {
+	if o != nil && o.Title != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTitle gets a reference to the given string and assigns it to the Title field.
+func (o *Post) SetTitle(v string) {
+	o.Title = &v
+}
+
+// GetBody returns the Body field value if set, zero value otherwise.
+func (o *Post) GetBody() string {
+	if o == nil || o.Body == nil {
+		var ret string
+		return ret
+	}
+	return *o.Body
+}
+
+// GetBodyOk returns a tuple with the Body field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Post) GetBodyOk() (*string, bool) {
+	if o == nil || o.Body == nil {
+		return nil, false
+	}
+	return o.Body, true
+}
+
+// HasBody returns a boolean if a field has been set.
+func (o *Post) HasBody() bool {
+	if o != nil && o.Body != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetBody gets a reference to the given string and assigns it to the Body field.
+func (o *Post) SetBody(v string) {
+	o.Body = &v
+}
+
 func (o Post) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["id"] = o.Id
 	}
-	if true {
-		toSerialize["name"] = o.Name
-	}
 	if o.UserId != nil {
 		toSerialize["userId"] = o.UserId
+	}
+	if o.Title != nil {
+		toSerialize["title"] = o.Title
+	}
+	if o.Body != nil {
+		toSerialize["body"] = o.Body
 	}
 	return json.Marshal(toSerialize)
 }

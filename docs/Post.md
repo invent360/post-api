@@ -5,14 +5,15 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int64** |  | 
-**Name** | **string** |  | 
 **UserId** | Pointer to **int32** |  | [optional] 
+**Title** | Pointer to **string** |  | [optional] 
+**Body** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
 ### NewPost
 
-`func NewPost(id int64, name string, ) *Post`
+`func NewPost(id int64, ) *Post`
 
 NewPost instantiates a new Post object
 This constructor will assign default values to properties that have it defined,
@@ -47,26 +48,6 @@ and a boolean to check if the value has been set.
 SetId sets Id field to given value.
 
 
-### GetName
-
-`func (o *Post) GetName() string`
-
-GetName returns the Name field if non-nil, zero value otherwise.
-
-### GetNameOk
-
-`func (o *Post) GetNameOk() (*string, bool)`
-
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetName
-
-`func (o *Post) SetName(v string)`
-
-SetName sets Name field to given value.
-
-
 ### GetUserId
 
 `func (o *Post) GetUserId() int32`
@@ -91,6 +72,56 @@ SetUserId sets UserId field to given value.
 `func (o *Post) HasUserId() bool`
 
 HasUserId returns a boolean if a field has been set.
+
+### GetTitle
+
+`func (o *Post) GetTitle() string`
+
+GetTitle returns the Title field if non-nil, zero value otherwise.
+
+### GetTitleOk
+
+`func (o *Post) GetTitleOk() (*string, bool)`
+
+GetTitleOk returns a tuple with the Title field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTitle
+
+`func (o *Post) SetTitle(v string)`
+
+SetTitle sets Title field to given value.
+
+### HasTitle
+
+`func (o *Post) HasTitle() bool`
+
+HasTitle returns a boolean if a field has been set.
+
+### GetBody
+
+`func (o *Post) GetBody() string`
+
+GetBody returns the Body field if non-nil, zero value otherwise.
+
+### GetBodyOk
+
+`func (o *Post) GetBodyOk() (*string, bool)`
+
+GetBodyOk returns a tuple with the Body field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBody
+
+`func (o *Post) SetBody(v string)`
+
+SetBody sets Body field to given value.
+
+### HasBody
+
+`func (o *Post) HasBody() bool`
+
+HasBody returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
