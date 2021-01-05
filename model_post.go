@@ -12,6 +12,7 @@ package openapi
 
 import (
 	"encoding/json"
+	"time"
 )
 
 // Post struct for Post
@@ -20,6 +21,21 @@ type Post struct {
 	UserId *int64 `json:"userId,omitempty"`
 	Title *string `json:"title,omitempty"`
 	Body *string `json:"body,omitempty"`
+}
+
+type APIObservationEndpoint struct {
+	EndpointID     string `json:"endpoint_id"`
+	InConnections  uint64 `json:"in_connections"`
+	OutConnections uint64 `json:"out_connections"`
+	LocalResets    uint64 `json:"local_resets"`
+	RemoteResets   uint64 `json:"remote_resets"`
+}
+
+
+type APIObservation struct {
+	Start     time.Time                `json:"start"` // Start Time of observation
+	End       time.Time                `json:"end"`   // End Time of observation
+	Endpoints []APIObservationEndpoint `json:"endpoints"`
 }
 
 // NewPost instantiates a new Post object

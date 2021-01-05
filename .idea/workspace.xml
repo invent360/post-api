@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d7eb5e34-5c59-473d-8f8b-53abcc2037be" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api_posts.go" beforeDir="false" afterPath="$PROJECT_DIR$/api_posts.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_post.go" beforeDir="false" afterPath="$PROJECT_DIR$/model_post.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

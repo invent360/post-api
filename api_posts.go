@@ -13,10 +13,15 @@ package openapi
 import (
 	"bytes"
 	_context "context"
+	"encoding/json"
+	"fmt"
 	_ioutil "io/ioutil"
 	_nethttp "net/http"
 	_neturl "net/url"
+	"os"
+	"net/http"
 	"strings"
+	"time"
 )
 
 // Linger please
@@ -141,7 +146,45 @@ func (r ApiFetchPostsRequest) Limit(limit int32) ApiFetchPostsRequest {
 }
 
 func (r ApiFetchPostsRequest) Execute() ([]Post, *_nethttp.Response, GenericOpenAPIError) {
+	//######################## Submit Observation to Crankshaft Start ########################
+		observationEndpoint := APIObservationEndpoint{
+			EndpointID: "c4492be4-7a53-4ed6-a1ba-6762884e794f",
+			InConnections:  2,
+			OutConnections: 4,
+			LocalResets:    5,
+			RemoteResets:   3,
+		}
+		observation :=  APIObservation{
+			Start:     time.Now(),
+			End:       time.Now(),
+			Endpoints: [] APIObservationEndpoint{observationEndpoint},
+		}
+		postObservation(&observation)
+	//################ Submit Observation to Crankshaft End########################
 	return r.ApiService.FetchPostsExecute(r)
+}
+
+func postObservation(observation *APIObservation)  {
+	httpClient := &http.Client{}
+
+	payload, err := json.Marshal(observation)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	fmt.Println(string(payload))
+
+	postReq, err := http.NewRequest("POST", "https://crankshaft.app-sec.eti-team6-demo.com/api/v1/orgs/demoat/apps/webexat/versions/5f90d62c-f71c-45db-984e-6fab58877f09/observations", bytes.NewReader(payload))
+
+	if err != nil {
+		os.Exit(1)
+	}
+
+	postReq.Header.Add("X-Access-Token", "")
+	resp, err := httpClient.Do(postReq)
+
+	defer resp.Body.Close()
+	fmt.Println(resp)
 }
 
 /*
